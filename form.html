@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرم نظر سنجی ماشین سازی فیدار جم صالح</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: linear-gradient(135deg, #6C5B7B, #355C7D);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      color: #111;
+    }
+
+    .container {
+      background-color: #fff;
+      max-width: 600px;
+      width: 90%;
+      margin: 50px auto;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 500;
+      color: #222;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 6px;
+      display: block;
+      color: #222;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+      background-color: #F2F2F2;
+      color: #222;
+      transition: 0.3s box-shadow, 0.3s transform;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      box-shadow: 0 4px 12px rgba(54, 54, 54, 0.2);
+      transform: scale(1.02);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .rating {
+      display: flex;
+      gap: 18px;
+      margin-top: 5px;
+    }
+
+    .rating label {
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .rating input[type="radio"] {
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 15px;
+      background-color: #FF6B6B;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s background-color, 0.3s transform, 0.3s box-shadow;
+    }
+
+    button:hover {
+      background-color: #ff4b4b;
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      background-color: #fff;
+      padding: 50px 35px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: #222;
+    }
+
+    .thank-you h1 {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .thank-you p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .countdown {
+      font-weight: bold;
+      font-size: 22px;
+      color: #FF6B6B;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>فرم نظر سنجی ماشین سازی فیدار جم صالح</h1>
+    <form id="survey-form" action="https://formspree.io/f/mjgvrqvb" method="POST">
+      <div>
+        <label for="fullname">نام و نام خانوادگی *</label>
+        <input type="text" id="fullname" name="fullname" required>
+      </div>
+
+      <div>
+        <label>میزان رضایت از خدمات *</label>
+        <div class="rating">
+          <label>1 <input type="radio" name="satisfaction" value="1" required></label>
+          <label>2 <input type="radio" name="satisfaction" value="2"></label>
+          <label>3 <input type="radio" name="satisfaction" value="3"></label>
+          <label>4 <input type="radio" name="satisfaction" value="4"></label>
+          <label>5 <input type="radio" name="satisfaction" value="5"></label>
+        </div>
+      </div>
+
+      <div>
+        <label for="product">محصول یا خدمت استفاده‌شده *</label>
+        <select id="product" name="product" required>
+          <option value="" disabled selected>انتخاب کنید</option>
+          <option value="دستگاه‌های خط تولید">دستگاه‌های خط تولید</option>
+          <option value="ماشین‌آلات صنعتی سفارشی">ماشین‌آلات صنعتی سفارشی</option>
+          <option value="تجهیزات بسته‌بندی">تجهیزات بسته‌بندی</option>
+          <option value="قطعات و تعمیرات">قطعات و تعمیرات</option>
+          <option value="سایر محصولات">سایر محصولات</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="feedback">نظر و تجربه مشتری</label>
+        <textarea id="feedback" name="feedback"></textarea>
+      </div>
+
+      <button type="submit">ارسال نظر</button>
+    </form>
+
+    <div class="thank-you" id="thank-you-message">
+      <h1>با تشکر از شما!</h1>
+      <p>نظر شما با موفقیت ثبت شد. ما از بازخورد شما سپاسگزاریم.</p>
+      <div class="countdown" id="countdown">۵ ثانیه تا بازگشت به سایت...</div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('survey-form');
+    const thankYou = document.getElementById('thank-you-message');
+    const countdownEl = document.getElementById('countdown');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const data = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          thankYou.style.display = 'block';
+          let seconds = 5;
+          const interval = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds + ' ثانیه تا بازگشت به سایت...';
+            if (seconds <= 0) {
+              clearInterval(interval);
+              window.location.href = "https://siwp.ir";
+            }
+          }, 1000);
+        } else {
+          alert('ارسال با مشکل مواجه شد، لطفاً دوباره تلاش کنید.');
+        }
+      }).catch(() => {
+        alert('ارسال با مشکل مواجه شد، لطفاً دوباره تلاش کنید.');
+      });
+    });
+  </script>
+</body>
+</html>
